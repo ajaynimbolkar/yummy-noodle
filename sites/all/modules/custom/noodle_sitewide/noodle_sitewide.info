@@ -1,0 +1,5 @@
+name = Yummy Noodle Sitewide Module
+description = Handeling all sitewide related functionality.
+package = Yummy Noodle
+core = 7.x
+version = "7.x"

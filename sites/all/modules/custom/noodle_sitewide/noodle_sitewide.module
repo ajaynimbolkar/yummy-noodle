@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file
+ * The noodle sitewide Module
+ *
+ * This module manages Siewide related functionality.
+ */
+
+/*
+ * Implements hook_init()
+ * Add js file for hide/show shopping block. 
+ */
+
+function noodle_sitewide_init() {
+  $module_path = drupal_get_path('module', 'noodle_sitewide');
+  drupal_add_js($module_path . '/js/noodle_sitewide.js');
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+
+function noodle_sitewide_form_alter(&$form, $form_state, $form_id)  {
+  switch ($form_id)  {
+    case 'contact_site_form':
+      $form['mail']['#title'] = t('Email');
+      $form['subject']['#access'] = FALSE;
+      $form['actions']['submit']['#prefix'] = '<div class = "contact-submit">';
+      $form['actions']['submit']['#suffix'] = '</div>';
+    break;
+  }
+}
